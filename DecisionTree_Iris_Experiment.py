@@ -8,8 +8,12 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import dagshub
 
-mlflow.set_tracking_uri("http://localhost:5000")  # If using an MLflow server
+
+dagshub.init(repo_owner='pankaj-stack', repo_name='my-first-repo', mlflow=True)
+
+mlflow.set_tracking_uri("https://dagshub.com/pankaj-stack/my-first-repo.mlflow")  # If using an MLflow server
 
 # Load the dataset
 iris = load_iris()
@@ -19,7 +23,7 @@ X, y = iris.data, iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Start an MLflow Experiment
-mlflow.set_experiment("DecisionTree_Iris_Experiment") # this is the experiment name 
+mlflow.set_experiment("DecisionTree_Iris_Experiment_dagshub") # this is the experiment name 
 
 max_depth = 5
 
