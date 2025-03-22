@@ -25,7 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Start an MLflow Experiment
 mlflow.set_experiment("DecisionTree_Iris_Experiment_dagshub") # this is the experiment name 
 
-max_depth = 5
+max_depth = 20
 
 with mlflow.start_run():
     # Initialize and train the model
